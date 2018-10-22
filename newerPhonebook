@@ -1,0 +1,91 @@
+package edu.project3;
+
+import java.util.ArrayList;
+
+public class Phonebook{
+	
+	
+	public static ArrayList<Contact> phonebook = new ArrayList<Contact>();
+	
+	/*to modify phonebook
+	 * 
+	 */
+	public Phonebook(Contact contact, String option, String change){
+		
+		if (option == "name") {
+			contact.setName(change);
+		}
+		else if (option == "number") {
+			contact.setNumber(change);
+		}
+		else if (option == "email") {
+			contact.setEmail(change);
+		}
+		else if (option == "note") {
+			contact.setNote(change);
+		}
+	}
+
+	
+	public static void getContacts() {
+		System.out.println("Contacts:");
+		for (int i=0;i<=phonebook.size()-1;i++) {
+			
+			System.out.println(phonebook.get(i));
+		}
+			
+	}
+	
+	public void deleteContact(Contact contact) {
+		phonebook.remove(contact);
+		// error message
+	}
+	public static void addContact(Contact contact) {
+		phonebook.add(contact);
+		//error message
+	}
+	//-------------- favorite contacts ------------------
+	
+	public static ArrayList<String> favoriteContacts = new ArrayList<String>();
+	
+	public static void addFavoriteContact(int number, Contact contact) {
+		favoriteContacts.add(number-1,contact.contactName);
+	}
+	
+	public static void changeFavorite(int originalNumber, int newNumber) {
+		//favoriteContacts.
+	}
+	
+	public static void displayFavorites() {
+		System.out.println("Favorite Contacts: ");
+		for (int i=0;i<5;i++) {
+			
+			System.out.println(i+1+". " + favoriteContacts.get(i));
+			
+		}
+	}
+	 
+	//-------------- phonelog---------------------
+	
+	public static ArrayList<String> phonelog = new ArrayList<String>();
+	
+	
+	public static void dialNumber(String number) {
+		
+		System.out.println("Dialing... " + number);
+		
+		
+	}
+	public static void dialContact(Contact contact) {
+		System.out.println("Dialing... " + contact.contactName);
+		
+	}
+	
+	public static void dialFavorite(int number) {
+		System.out.println("Dialing... " + favoriteContacts.get(number-1));
+	}
+	public static void displayPhonelog() {
+		
+	}
+	
+}
