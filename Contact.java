@@ -6,13 +6,22 @@ public class Contact{
 	private String contactNumber;
 	private String contactEmail;
 	private String contactNote;
-	
+	/**
+	* initializes all the instance variables
+	***/
 	public Contact(){
 		this.contactName= "n/a";
 		this.contactNumber = "n/a";
 		this.contactEmail = "n/a";
 		this.contactNote = "n/a";
 	}
+	/**
+	* overload constructor that creates a default contact
+	* @param name - the name of the contact
+	* @param number - the number of the contact
+	* @param email - the email of the contact
+	* @param note - any notes about the contact
+	*/
 	public Contact(String name, String number, String email, String note){
 		this.contactName = name;
 		String first = number.substring(0,3);
@@ -20,7 +29,7 @@ public class Contact{
 		String third = number.substring(6,10);
 		String rnumber = "("+first+")"+second+"-"+third;
 		
-		this.contactNumber = rnumber;
+		this.contactNumber = number;
 		this.contactEmail = email;
 		this.contactNote = note;
 	}
