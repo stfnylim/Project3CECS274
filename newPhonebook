@@ -1,0 +1,44 @@
+package edu.project3;
+
+import java.util.ArrayList;
+
+public class Phonebook{
+	
+	
+	public static ArrayList<Contact> phonebook = new ArrayList<Contact>();
+	
+	
+	public Phonebook(Contact contact, String option, String change){
+		
+		if (option == "name") {
+			contact.setName(change);
+		}
+		else if (option == "number") {
+			contact.setNumber(change);
+		}
+		else if (option == "email") {
+			contact.setEmail(change);
+		}
+		else if (option == "note") {
+			contact.setNote(change);
+		}
+	}
+	
+	public static void getContacts() {
+		System.out.println("Contacts:");
+		for (int i=0;i<=phonebook.size()-1;i++) {
+			System.out.println(phonebook.get(i));
+		}
+			
+	}
+	
+	public void deleteContact(Contact contact) {
+		phonebook.remove(contact);
+		// error message
+	}
+	public static void addContact(Contact contact) {
+		phonebook.add(contact);
+		//error message
+	}
+	
+}
