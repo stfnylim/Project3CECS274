@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Contact{
 	
-	private String contactName;
-	private String contactNumber;
-	private String contactEmail;
-	private String contactNote;
+	public String contactName;
+	public String contactNumber;
+	public String contactEmail;
+	public String contactNote;
 	
 	/**
 	* initializes all the instance variables
@@ -29,13 +29,7 @@ public class Contact{
 	*/
 	public Contact(String name, String number, String email, String note){
 		this.contactName = name;
-		
-		String first = number.substring(0,3);
-		String second = number.substring(3,6);
-		String third = number.substring(6,10);
-		String rnumber = "("+first+")"+second+"-"+third;
-		
-		this.contactNumber = rnumber;
+		this.contactNumber = number;
 		this.contactEmail = email;
 		this.contactNote = note;
 	}
@@ -52,25 +46,31 @@ public class Contact{
 		this.contactNote = note;
 	}
 	public String toString() {
-		return "Name: "+ this.contactName+ "\nNumber:" 
-				+ this.contactNumber + " \nEmail: "
-				+ this.contactEmail + " \nNote: " 
-				+ this.contactNote+"\n";
+		if (this.contactNumber.length()==10) {
+			String first = this.contactNumber.substring(0,3);
+			String second = this.contactNumber.substring(3,6);
+			String third = this.contactNumber.substring(6,10);
+			String rnumber = "("+first+")"+second+"-"+third;
+			
+			return "Name: "+ this.contactName+ "\nNumber:" 
+					+ rnumber + " \nEmail: "
+					+ this.contactEmail + " \nNote: " 
+					+ this.contactNote+"\n";
+		}
+		else  {
+			String first = this.contactNumber.substring(0,3);
+			String second = this.contactNumber.substring(3,7);
+			String rnumber = first+"-"+second;
+			
+			return "Name: "+ this.contactName+ "\nNumber:" 
+			+ rnumber + " \nEmail: "
+			+ this.contactEmail + " \nNote: " 
+			+ this.contactNote+"\n";
+			
+		}
+		
 	}
 	
-		
-	//----------------- TESTER ----------------------
-	public static void main(String[] args) {
-		Contact hello = new Contact("Jenny","5556665555","stfnylim@gmail.com", "hi");
-		Contact hello2 = new Contact("Henny","5556665555","stfnylim@gmail.com", "hi");
-		//System.out.println(hello);
-		Phonebook.addContact(hello);
-		Phonebook.addContact(hello2);
-		Phonebook.getContacts();
-		new Phonebook(hello,"name","whenny");
-		Phonebook.getContacts();
-		
-	}
 }
 
 

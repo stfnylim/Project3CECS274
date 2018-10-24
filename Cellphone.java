@@ -24,6 +24,7 @@ public class Cellphone {
 			else if (response.equals("2")) {
 				System.out.println("Which contact would you like to delete?");
 				String name = in.nextLine();
+				Phonebook.deleteContact(name);
 				
 				
 				
@@ -56,6 +57,7 @@ public class Cellphone {
 					else if (favresponse.equals("2")) {
 						System.out.println("Who would you like to delete from favorites?:");
 						String favname = in.nextLine();
+						Phonebook.deleteFavoriteContact(favname);
 					}
 					else if (favresponse.equals("3")) {
 						Phonebook.displayFavorites();
